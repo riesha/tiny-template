@@ -5,20 +5,11 @@
 extern crate alloc;
 mod wrappers;
 mod writer;
-use alloc::{
-    alloc::{alloc, dealloc},
-    vec::Vec,
-};
 use core::{
     alloc::{GlobalAlloc, Layout},
-    mem,
     panic::PanicInfo,
-    ptr,
 };
-use iced_x86::{
-    code_asm::{eax, CodeAssembler},
-    Decoder,
-};
+
 use winapi::{
     ctypes::c_void,
     um::{
@@ -26,8 +17,6 @@ use winapi::{
         winnt::HEAP_ZERO_MEMORY,
     },
 };
-
-use wrappers::{alloc_console, free_console};
 
 #[cfg(not(test))]
 #[panic_handler]
@@ -83,7 +72,5 @@ static GLOBAL: HeapAllocator = HeapAllocator;
 
 fn main()
 {
-    let mut dec = CodeAssembler::new(32).unwrap();
-    let _ = dec.xor(eax, eax).unwrap();
-    minicrt_println!("{:?}", dec.assemble(0x0).unwrap());
+    minicrt_println!("Hello world!");
 }
