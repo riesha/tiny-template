@@ -5,17 +5,11 @@ edition = "2021"
 
 
 
-[dependencies]
-#ntcall = { git = "https://github.com/riesha/ntcall-rs"}
+
 
 [dependencies.winapi]
 version = "0.3.9"
 features = ["processthreadsapi","heapapi","winuser","synchapi","libloaderapi","handleapi","consoleapi","wincon","memoryapi"]
-
-[dependencies.iced-x86]
-version = "1.18.0"
-default-features = false
-features = ["no_std", "decoder", "masm","code_asm"]
 
 
 [profile.dev]
